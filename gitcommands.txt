@@ -1,0 +1,9 @@
+
+
+
+git clone https://github.com/keyur2714/Angular-6-1-19.git
+git status
+git add .
+git commit -m"message"
+git push origin master
+git pull -- get latest code
