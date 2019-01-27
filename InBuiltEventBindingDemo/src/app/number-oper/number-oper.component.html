@@ -1,0 +1,40 @@
+<hr/>
+<div class="row form-group">
+  <div class="col-sm-4">
+      Enter First No : 
+  </div>
+  <div class="col-sm-4">
+      <input type=number name=num1 [(ngModel)]="number1" class="form-control"/>
+  </div>
+</div>
+<div class="row form-group">
+    <div class="col-sm-4">
+        Enter Second No : 
+    </div>
+    <div class="col-sm-4">
+        <input type=number name=num2 [(ngModel)]="number2" class="form-control"/>        
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col-sm-1">
+        <button (click)="add()" class="btn btn-info">+</button>
+    </div>
+    <div class="col-sm-1">
+        <button (click)="sub()" class="btn btn-info">-</button>
+    </div>
+    <div class="col-sm-1">
+        <button (click)="mul()" class="btn btn-info">*</button>
+    </div>
+    <div class="col-sm-1">
+        <button (click)="div()" class="btn btn-info">/</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+        Result Is : {{result}}
+    </div>    
+</div>
+<!-- {{number1}}  
+{{number2}}   -->
+  
+  

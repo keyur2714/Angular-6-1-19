@@ -1,0 +1,20 @@
+<div class="row form-group">
+  <div class="col-sm-4">Enter Any String:</div>
+  <div class="col-sm-4"><input class="form-control" type=text #str name=str (blur)="check(str.value)"/></div> 
+</div>
+<div class="row form-group">
+  <div class="col-sm-4"> 
+      <button class="btn btn-info" (click)="upperCase(str.value)" [disabled]="isEmpty">ConvertToUpper</button>
+  </div>      
+  <div class="col-sm-4"> 
+      <button class="btn btn-danger" (click)="lowerCase(str.value)" [disabled]="isEmpty">ConvertToLower</button>
+  </div>      
+  <div class="col-sm-4"> 
+      <button class="btn btn-success" (click)="reverse(str.value)" [disabled]="isEmpty">ConvertToReverse</button>
+  </div>      
+</div>
+<div class="row">
+  <div class="col">
+    Ouput String is : {{convertedStr}}
+  </div>
+</div>
