@@ -1,0 +1,48 @@
+<div class="row form-group" *ngIf="errorMsg != ''">
+  <div class="col-sm-6 alert alert-danger">
+    {{errorMsg}}
+  </div>
+</div>
+<div class="row form-group">
+  <div class="col-sm-4">
+    <label>Friend Name: </label>    
+  </div>  
+  <!-- <div class="col-sm-4">
+    <input type=text name=fname #fname class="form-control"/>  
+  </div>     -->
+  <div class="col-sm-4">
+      <input type=text name=fname [(ngModel)]="fname" class="form-control"/>  
+  </div>      
+</div>
+<div class="row form-group">
+    <div class="col-sm-4">
+        <button (click)="addNewFriend()" class="btn btn-success" *ngIf="! isUpdate">Add New Friend</button>        
+        <button (click)="updateFriend()" class="btn btn-success" *ngIf="isUpdate">Update Friend</button>                
+    </div>    
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <table class="table table-border">
+      <thead class="bg-info">
+          <tr>
+            <th>Name</th>
+            <th>Action</th>
+          </tr>
+      </thead>
+      <tbody class="bg-warning">
+        <tr *ngFor="let friend of friendsList;let i=index" (click)="setSelected(friend)" [class.selected]="friend === selectedFriend">
+          <td>{{friend}}</td>
+          <td>
+            <button class="btn btn-danger rounded float-left m-1" (click)="delete(i)">Delete</button>
+            <button class="btn btn-info rounded float-left m-1" (click)="edit(i)">Edit</button>
+          </td>
+        </tr>
+      </tbody> 
+    </table>
+  </div>
+</div>
+<div class="row">
+     <div class="col-sm-6">
+       Selected Friend is : {{selectedFriend}}
+     </div> 
+</div>

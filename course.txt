@@ -6,7 +6,7 @@ type declaration -- Done
 array -- Done 
 class (model class) -- Done
 object array -- Done
-local reference variable /
+local reference variable 
 event & property bindings 
 inbuild directives -- Done
 	ngFor
