@@ -1,0 +1,16 @@
+<h1>{{title}}</h1>
+
+
+<app-message *ngFor="let msg of mesaages" [message]="msg">
+</app-message>
+
+<app-message [message]="'Good Bye...!'" [messageType]="'success'">
+</app-message>
+
+<app-message [message]="message" [messageType]="'danger'">
+</app-message>
+
+<app-message [messageType]="'dark'">
+</app-message>
+
+<app-emp-list></app-emp-list>

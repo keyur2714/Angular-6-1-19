@@ -1,0 +1,14 @@
+<table class="table bg-info">
+    <thead>
+        <tr>
+          <th *ngFor="let columnHeader of columnHeaderList">{{columnHeader}}</th>          
+        </tr>    
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of dataList">
+            <td *ngFor="let column of columnList">
+              {{data[column]}}
+            </td>            
+        </tr>
+    </tbody>    
+  </table>

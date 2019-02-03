@@ -1,0 +1,28 @@
+<!-- <table class="table">
+  <thead>
+      <tr>
+        <th>EmpId</th>
+        <th>Name</th>
+        <th>Designation</th>
+        <th>Salary</th>
+        <th>Department</th>
+      </tr>    
+  </thead>
+  <tbody>
+      <tr *ngFor="let emp of empList">
+          <td>{{emp.empId}}</td>
+          <td>{{emp.name}}</td>
+          <td>{{emp.designation}}</td>
+          <td>{{emp.salary}}</td>
+          <td>{{emp.dept}}</td>
+      </tr>
+  </tbody>
+  
+</table> -->
+
+
+<app-my-table [dataList]="empList"
+[columnHeaderList]="columnHeaderList"
+[columnList]="columnList"
+>
+</app-my-table>
