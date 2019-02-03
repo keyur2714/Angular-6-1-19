@@ -54,6 +54,7 @@ export class FriendsListComponent implements OnInit {
 
   updateFriend():void{
     this.friendsList[this.updateIdx] = this.fname;
+    this.isUpdate = false;
   }
 
   setSelected(friendName):void{
