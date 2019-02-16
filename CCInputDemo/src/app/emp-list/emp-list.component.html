@@ -24,5 +24,10 @@
 <app-my-table [dataList]="empList"
 [columnHeaderList]="columnHeaderList"
 [columnList]="columnList"
+(getSelectedColumnValue)="getColumnValue($event)"
 >
 </app-my-table>
+
+<p>
+    Selected Cell Value is : {{selectedCellValue}}
+</p>

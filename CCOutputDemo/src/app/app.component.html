@@ -1,0 +1,9 @@
+<h1>{{title}}</h1>
+<app-message
+ [message]="'Radhe Krishna...!'"
+ (getFromattedMessage)="getMessage($event)"
+>
+</app-message>
+<p>
+  Formatted Message is : {{formatteMsg}}
+</p>

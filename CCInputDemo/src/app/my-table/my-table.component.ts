@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-my-table',
@@ -6,6 +6,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./my-table.component.css']
 })
 export class MyTableComponent implements OnInit {
+
+  @Input('color')
+  bgColor : string = 'dark';
+
+
 
   @Input()
   columnHeaderList: string[] = [];
@@ -16,9 +21,16 @@ export class MyTableComponent implements OnInit {
   @Input()
   dataList: any[] = [];
 
+  @Output()
+  getSelectedColumnValue = new EventEmitter<any>();
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  getSelectedRow(selectedId){
+    console.log(selectedId);
+    this.getSelectedColumnValue.emit(selectedId);
+  }
 }

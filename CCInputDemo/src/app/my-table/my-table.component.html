@@ -1,4 +1,4 @@
-<table class="table bg-info">
+<table class="table bg-{{bgColor}} text-white">
     <thead>
         <tr>
           <th *ngFor="let columnHeader of columnHeaderList">{{columnHeader}}</th>          
@@ -6,7 +6,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let data of dataList">
-            <td *ngFor="let column of columnList">
+            <td *ngFor="let column of columnList" (click)="getSelectedRow(data[column])">
               {{data[column]}}
             </td>            
         </tr>

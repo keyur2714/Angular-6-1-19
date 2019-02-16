@@ -9,8 +9,10 @@ import { Employee } from './employee.model';
 export class EmpListComponent implements OnInit {
 
   empList: Employee[] = [];
-  columnHeaderList : string[] = ["Name","Designation","Dept"];
-  columnList : string[] = ["name","designation","dept"];
+  columnHeaderList : string[] = ["Id","Name","Designation","Dept"];
+  columnList : string[] = ["empId","name","designation","dept"];
+
+  selectedCellValue: any = '';
   constructor() { }
 
   ngOnInit() {
@@ -40,4 +42,7 @@ export class EmpListComponent implements OnInit {
     this.empList.push(emp3);
   }
 
+  getColumnValue(value){
+    this.selectedCellValue = value;
+  }
 }
