@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-sm-6">
+    <select name="myDropDown" class="form-control" [(ngModel)]="selectedValue" (change)="setSelectedValue()">
+      <option [value]="-1">-:Select:-</option>
+      <option *ngFor="let item of dataList" [ngValue]="item">
+        {{item['desc']}}
+      </option>
+    </select>
+  </div>
+  <div class="col-sm-6">
+      <ng-content></ng-content>
+    </div>
+</div>
