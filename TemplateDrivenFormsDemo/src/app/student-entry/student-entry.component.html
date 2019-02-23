@@ -1,0 +1,58 @@
+<form #f=ngForm (ngSubmit)="save(f)">
+  <div class="row form-group">
+    <div class="col-sm-2">Name:</div>
+    <div class="col-sm-4">
+      <input type=text name="name" [(ngModel)]="student.name" required class="form-control" #name=ngModel/>
+    </div>
+    <div class="col-sm-6" *ngIf="name.touched && name.invalid">
+      Name is Required Field.
+    </div>
+  </div>
+  <div class="row form-group">
+      <div class="col-sm-2">Mobile No:</div>
+      <div class="col-sm-4">
+        <input type=text name="mobileNo" [(ngModel)]="student.mobileNo" required class="form-control" #mobileNo=ngModel/>
+      </div>
+      <div class="col-sm-6" *ngIf="mobileNo.touched && mobileNo.invalid">
+          Mobile No is Required Field.
+      </div>
+  </div>
+  <div class="row form-group">
+      <div class="col-sm-2">Email:</div>
+      <div class="col-sm-4">
+        <input type=text name="email" [(ngModel)]="student.email" required email class="form-control" #email=ngModel/>
+      </div>
+      <div class="col-sm-6" *ngIf="email.touched && email.invalid">
+        <span *ngIf="email.errors['required']">
+          Email is Required Field.
+        </span>
+        <span *ngIf="email.errors['email']">
+            Email is Not Valid
+        </span>          
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <!-- <button class="btn btn-info" [disabled]="f.invalid">Submit</button> -->
+      <button class="btn btn-info">Submit</button>
+    </div>    
+  </div>
+</form>
+<div class="row" *ngIf="isSubmittedAndValid">
+  <div class="col-sm-6">
+      <table>
+        <tr>
+            <td>Name: </td>
+            <td>{{student.name}}</td>
+        </tr>
+        <tr>
+            <td>Mobile No:</td>
+            <td>{{student.mobileNo}}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{student.email}}</td>
+        </tr>
+      </table>
+  </div>
+</div>
