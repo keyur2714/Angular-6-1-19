@@ -31,6 +31,24 @@
         </span>          
       </div>
   </div>
+  <div class="row form-group">
+    <div class="col-sm-2">Course:</div>
+    <div class="col-sm-4">
+      <select name="course" [(ngModel)]="student.course" class="form-control">
+        <option value="-1">-:Select Course:-</option>
+        <option *ngFor="let course of courseList" [ngValue]="course">
+          {{course.courseName}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-2">Reg Status:</div>
+    <div class="col-sm-4">
+      <input type=radio name=regStatus value="Enquiry" [(ngModel)]="student.regStatus" />Enquiry
+      <input type=radio name=regStatus value="Enrolled" [(ngModel)]="student.regStatus" />Enrolled
+    </div>
+  </div>
   <div class="row">
     <div class="col-sm-4">
       <!-- <button class="btn btn-info" [disabled]="f.invalid">Submit</button> -->
@@ -52,6 +70,18 @@
         <tr>
             <td>Email:</td>
             <td>{{student.email}}</td>
+        </tr>
+        <tr>
+            <td>Course:</td>
+            <td>{{student.course.courseName}}</td>
+        </tr>
+        <tr>
+            <td>Course Fees:</td>
+            <td>{{student.course.fees}}</td>
+        </tr>
+        <tr>
+            <td>Registration Status:</td>
+            <td>{{student.regStatus}}</td>
         </tr>
       </table>
   </div>
