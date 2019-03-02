@@ -17,7 +17,15 @@
                   Username:
                 </div>
                 <div class="col-sm-6">
-                    <input type=text name=username formControlName="userName" class="form-control" />
+                    <input type=text name=username formControlName="userName" class="form-control" (blur)="updateValidations()" />
+                </div>
+                <div class="col-sm-3" *ngIf="userForm.get('userName').invalid && userForm.get('userName').touched">
+                  <span *ngIf="userForm.get('userName').errors['required']">
+                      Username is Required Fields. 
+                  </span>
+                  <span *ngIf="userForm.get('userName').errors['pattern']">
+                      Username Pattern is not matched (ie.keyurD27@)
+                  </span>
                 </div>
               </div>
               <div class="row form-group">
@@ -26,6 +34,14 @@
                   </div>
                   <div class="col-sm-6">
                       <input type=password name=password formControlName="password" class="form-control" />
+                  </div>
+                  <div class="col-sm-3" *ngIf="userForm.get('password').invalid && userForm.get('password').touched">
+                    <span *ngIf="userForm.get('password').errors['required']">
+                       Password is Required Field. 
+                    </span>
+                    <span *ngIf="userForm.get('password').errors['minlength']">
+                      Password is Min 6 Char. 
+                   </span>
                   </div>
               </div>
               <div class="row">
@@ -36,6 +52,11 @@
             </form>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="isSubmitted"> 
+    <div class="col">
+      UserName is : {{user.userName}}
     </div>
   </div>
 </div>
