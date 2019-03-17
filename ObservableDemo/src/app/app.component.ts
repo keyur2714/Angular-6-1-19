@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable,of,interval,Subscription } from 'rxjs';
-import { map,catchError  } from 'rxjs/operators';
 import { LoggingService } from 'src/services/logging.service';
 import { EmployeeService } from './employee.service';
 import { Employee } from './employee.model';
@@ -31,9 +30,17 @@ export class AppComponent implements OnInit,OnDestroy{
 
     this.employeeService.getEmployeeListObservable().subscribe(
       (data)=>{
-        console.log(data);
+        console.log(data+" ====");
       }
     );
+    this.employeeService.getUpperCaseEmployeeList().subscribe(
+      (data)=>{
+        console.log(data);
+      },
+      (error)=>{
+        
+      }
+    )
   }
 
   ngOnDestroy(){
