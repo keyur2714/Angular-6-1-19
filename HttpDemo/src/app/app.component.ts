@@ -13,14 +13,10 @@ export class AppComponent implements OnInit{
   constructor(private studentService: StudentService){}
 
   ngOnInit(){
-    this.studentService.getStudentList().subscribe(
-      (data:Student[])=>{
-        console.log(data);
-        this.studentList = data;
-      },
-      (error)=>{
-
+    this.studentService.getStudentList().toPromise().then(
+      (data)=>{
+        console.log(data+" ===");
       }
-    )
+    )        
   }
 }

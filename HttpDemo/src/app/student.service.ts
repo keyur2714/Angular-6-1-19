@@ -15,4 +15,17 @@ export class StudentService {
   getStudentList():Observable<Student[]>{
     return this.httpClient.get<Student[]>(this.appURL);
   }
+
+  getStudentById(id:number):Observable<Student>{
+    return this.httpClient.get<Student>(this.appURL+"/"+id);
+  }
+
+  saveStudent(student:Student):Observable<Student>{
+    return this.httpClient.post<Student>(this.appURL,student);
+  }
+
+
+  updateStudent(student:Student):Observable<Student>{
+    return this.httpClient.put<Student>(this.appURL+"/"+student.id,student);
+  }
 }

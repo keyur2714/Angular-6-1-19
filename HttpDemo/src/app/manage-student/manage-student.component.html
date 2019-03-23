@@ -1,0 +1,50 @@
+<form [formGroup]="studentForm" (ngSubmit)="save()">
+  <table>
+    {{status}}
+    <tr *ngIf="status === 304">
+      <td class="alert alert-info">
+        Student Already Exist.
+      </td>
+    </tr>
+    <tr *ngIf="status === 204">
+      <td class="alert alert-info">
+        Student Saved Successfully.
+      </td>
+    </tr>
+    <tr *ngIf="status === 205">
+        <td class="alert alert-info">
+          Student Updated Successfully.
+        </td>
+      </tr>
+    <tr class="form-group">
+      <th>Id: </th>
+      <td><input type=text formControlName="id" name="id" class="form-control"/></td>
+    </tr>
+    <tr class="form-group">
+        <th>Name: </th>
+        <td><input type=text formControlName="name" name="name" class="form-control"/></td>
+    </tr>
+    <tr>
+      <td *ngIf="!isUpdate">
+        <button class="btn btn-info" [disabled]="studentForm.invalid">Save</button>        
+      </td>
+      <td *ngIf="isUpdate">
+          <button (click)="update()" type=button class="btn btn-info" [disabled]="studentForm.invalid">Update</button>          
+      </td>
+    </tr>
+  </table>
+</form>
+<table class="table table-striped bg-dark text-white">
+  <thead>
+    <tr>
+      <th>Roll No</th>
+      <th>Name</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let student of studentList">
+      <td>{{student.id}}</td>
+      <td>{{student.name}}</td>
+      <td><button type=button class="btn btn-success" (click)="edit(student.id)">Edit</button></td>
+    </tr>
+  </thead>
+</table>
