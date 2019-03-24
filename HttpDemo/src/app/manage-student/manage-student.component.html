@@ -1,6 +1,10 @@
 <form [formGroup]="studentForm" (ngSubmit)="save()">
-  <table>
-    {{status}}
+  <table>    
+    <tr *ngIf="status === 400">
+      <td class="alert alert-success">
+        Student Deleted Successfully.
+      </td>
+    </tr>
     <tr *ngIf="status === 304">
       <td class="alert alert-info">
         Student Already Exist.
@@ -43,8 +47,12 @@
     </tr>
     <tr *ngFor="let student of studentList">
       <td>{{student.id}}</td>
-      <td>{{student.name}}</td>
-      <td><button type=button class="btn btn-success" (click)="edit(student.id)">Edit</button></td>
+      <td>{{student.name}}          
+      </td>
+      <td>
+        <button type=button class="btn btn-success m-1" (click)="edit(student.id)"><i class="fa fa-edit"></i></button>        
+        <button type=button class="btn btn-danger m-1" (click)="delete(student.id)"><i class="fa fa-trash"></i></button>        
+      </td>
     </tr>
   </thead>
 </table>

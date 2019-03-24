@@ -97,4 +97,20 @@ export class ManageStudentComponent implements OnInit {
       }
     )
   }
+
+  delete(id:number):void{
+    let confirmMsg = confirm("Are you sure want to delete?");
+    if(confirmMsg){
+      this.studentService.delete(id).subscribe(
+        (data)=>{
+          console.log(data);
+          this.status = 400;
+          this.getStudentList();
+        },
+        (error)=>{
+  
+        }
+      )
+    }    
+  }
 }

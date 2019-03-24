@@ -28,4 +28,8 @@ export class StudentService {
   updateStudent(student:Student):Observable<Student>{
     return this.httpClient.put<Student>(this.appURL+"/"+student.id,student);
   }
+
+  delete(id:number):Observable<Student>{
+    return this.httpClient.delete<Student>(this.appURL+"/"+id);
+  }
 }
