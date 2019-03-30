@@ -12,11 +12,12 @@ export class StudentService {
 
   constructor(private httpClient : HttpClient) { }
 
-  getStudentList():Observable<Student[]>{
+  getStudentList():Observable<Student[]>{    
     return this.httpClient.get<Student[]>(this.appURL);
   }
 
   getStudentById(id:number):Observable<Student>{
+    console.log(window.sessionStorage.getItem("token"));
     return this.httpClient.get<Student>(this.appURL+"/"+id);
   }
 
