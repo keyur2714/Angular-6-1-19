@@ -1,0 +1,43 @@
+<h1>
+  {{title}}
+</h1>
+<p>
+  {{title | uppercase | lowercase}}
+</p>
+<p>
+  {{'keyur' | uppercase}}
+</p>
+<h1>
+  {{today | date : 'dd/MMM/yyyy hh:mm:ss a' | uppercase}}
+</h1>
+
+<p>
+  {{numbers | async}}
+</p>
+
+<pre>
+  {{person | json}}
+</pre>
+
+<p>
+  {{person.name | welcome}}
+</p>
+<h2>
+  {{ 'hiren' | welcome}}
+</h2>
+
+<h1>
+  {{accountNumber | mask : '#' : 7}}
+</h1>
+
+<h2>
+  {{mobileNo | mask : '$'}}
+</h2>
+
+<ul>
+  <li *ngFor="let grade of gradeList" [class]="grade | status | lowercase">
+    {{grade}}
+  </li> 
+</ul>
+
+<button (click)="openWin()">OPEN</button>
