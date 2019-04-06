@@ -1,0 +1,35 @@
+<h1 appMyStyle [fontSize]="'45px'" [color]="'green'" #m1>
+  {{title}}
+</h1>
+
+<p appMyStyle [color]="'blue'" #m2>
+  Hello Radhe Krishna...!
+</p>
+
+<select name="colors" (change)="changeColor(colors.value)" #colors>
+  <option value="-1">-:Select:-</option>  
+  <option value="red">Red</option>
+  <option value="green">Green</option>
+  <option value="blue">Blue</option>
+</select>
+
+<div *ngIf="false;then ifBlock;else elseBlock">
+  Hello Good Morning...!
+</div>
+
+<li *appMyLoop="5">
+  Keyur
+</li>
+
+
+<ng-template [ngIf]="false">
+  Dravid
+</ng-template>
+
+<ng-template #ifBlock>
+  sachin
+</ng-template>
+<ng-template #elseBlock>
+  test
+</ng-template>
+  
