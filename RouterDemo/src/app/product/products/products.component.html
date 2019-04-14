@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4 p-1" *ngFor="let product of productList;let i=index">
+     <div class="card bg-dark text-white">
+        <div class="card-header">
+          {{product.name}}
+        </div> 
+        <div class="card-body">
+          <a [routerLink]="['product-detail',product.id]"><img src="../assets/fruits/{{product.code}}.jpg" width=100px height=100px /></a>
+        </div>
+        <div class="card-footer">          
+          <table>
+            <tr>
+              <td>
+                  {{product.price}} Rs.          
+              </td>
+            </tr>
+            <tr>            
+              <td>
+                <button class="btn btn-sm btn-danger">Add To Cart</button>
+              </td>
+            </tr>
+          </table>
+          
+        </div>
+     </div>
+  </div>
+</div>
+

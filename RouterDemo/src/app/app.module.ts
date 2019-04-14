@@ -6,25 +6,27 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { ProductsComponent } from './products/products.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductModule } from './product/product.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ContactUsComponent,
-    AboutUsComponent,
-    ProductsComponent,
-    PageNotFoundComponent,
-    ProductDetailComponent
+    AboutUsComponent,    
+    PageNotFoundComponent    
   ],
   imports: [
     BrowserModule,
+    //ProductModule,
     AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(){
+    console.log("App Module Loaded...");
+  }
+}
