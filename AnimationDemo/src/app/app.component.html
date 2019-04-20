@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row bg-warning text-white">
+    <div class="col">
+      <h1>{{title}}</h1>
+    </div>
+  </div>
+  <div class="row m-1">
+    <div class="col">
+      <button (click)="toggleStates()" class="btn btn-danger">Change State</button>      
+    </div>
+  </div>
+  <div class="row m-1">
+    <div class="col-sm-4" style="width:100px;height:100px" [@stateTrigger]="state">      
+    </div>
+  </div>
+  <div class="row m-1">
+    <div class="col-sm-6">
+      <table class="table table-bordered" [@gridTrigger]="gridState">
+        <tr>
+          <th>Name</th>
+          <th>City</th>
+          <th>Mobile No</th>
+        </tr>
+        <tr *ngFor="let student of studentList">
+          <td>{{student.name}}</td>
+          <td>{{student.city}}</td>
+          <td>{{student.mobileNo}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
