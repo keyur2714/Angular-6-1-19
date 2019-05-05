@@ -1,5 +1,6 @@
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpHeaders } from '@angular/common/http';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpHeaders, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor{
 
@@ -18,7 +19,14 @@ export class TokenInterceptor implements HttpInterceptor{
                 });
         }
 
-        return next.handle(req);
+        return next.handle(req).pipe(
+            map((event : HttpEvent<any>)=>{
+                if (event instanceof HttpResponse) {
+                    console.log('event--->>>', event);
+                }
+                return event;
+            }
+        ))
     }    
 
 }
